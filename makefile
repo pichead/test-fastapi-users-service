@@ -1,11 +1,14 @@
-
-
+VENV = venv
+PYTHON = $(VENV)/bin/python3
+PIP = $(VENV)/bin/pip
+UVICORN = $(VENV)/bin/uvicorn
 
 install:
-	pip3 install -r requirements.txt
+	python3 -m venv $(VENV)
+	$(PIP) install -r requirements.txt
 
 start:
-	uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+	$(UVICORN) main:app --host 0.0.0.0 --port 8801 --reload
 
 deploy:
 	docker compose up -d --build
