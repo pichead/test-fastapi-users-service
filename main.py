@@ -55,8 +55,8 @@ class User(Base):
 Base.metadata.create_all(bind=db_engine)
 
 
-print("swagger ui: http://localhost:8000/docs")
-print("server is running http://localhost:8000")
+print(f"swagger ui: http://localhost:{os.getenv('PORT', 8000)}/docs")
+print(f"server is running http://localhost:{os.getenv('PORT', 8000)}")
 
 class UserCreate(BaseModel):
     username: str
